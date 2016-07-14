@@ -30,6 +30,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       node_config.vm.network 'private_network', ip: node[:ip],
         virtualbox__intnet: 'salt'
       node_config.vm.synced_folder '..', '/srv/se-book'
+      node_config.vm.provision :shell, path:"../bin/setup"
     end
   end
 end
